@@ -1,4 +1,4 @@
-# Grafana Plugins
+# Grafana Alarm Box
 
 An alarm box panel for [Grafana](http://grafana.org/).
 
