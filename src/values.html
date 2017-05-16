@@ -1,0 +1,28 @@
+<div class="col-md-6">
+  <h5 class="section-heading">Scratch Pad</h5>
+  <div class="gf-form">
+    <textarea class="gf-form-input" rows="7"
+      ng-model="ctrl.panel.mathScratchPad"/>
+  </div>
+</div>
+
+<div class="col-md-3">
+  <h5 class="section-heading">Debugger</h5>
+  <label>
+    {{ ctrl.box.scratchPad }}
+  </label>
+</div>
+
+<div class="col-md-3">
+  <div class="gf-form">
+    <label class="gf-form-label width-10">Display value</label>
+    <input class="gf-form-input width-15"
+      ng-model="ctrl.panel.mathDisplayValue"/>
+  </div>
+
+  <div class="gf-form">
+    <label class="gf-form-label width-10">Color value</label>
+    <input class="gf-form-input width-15"
+      ng-model="ctrl.panel.mathColorValue"/>
+  </div>
+</div>

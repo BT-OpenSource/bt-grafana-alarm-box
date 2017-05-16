@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import * as math from '../external/math.min'
 
 export class Builder {
   constructor (options) {
@@ -6,10 +7,15 @@ export class Builder {
   }
 
   call (seriesList = []) {
-    var sum = _.reduce(seriesList, (memo, series) => {
-      return memo + series.datapoints.length
-    }, 0)
+    var scratchPadExp = this.options.mathScratchPad
+    var displayValueExp = this.options.mathDisplayValue
+    var colorValueExp = this.options.mathColorValue
+    var scope = { data: seriesList, now: Date.now() }
 
-    return { number: sum }
+    return {
+      scratchPad: math.eval(scratchPadExp, scope),
+      displayValue: math.eval(displayValueExp, scope),
+      colorValue: math.eval(colorValueExp, scope)
+    }
   }
 }

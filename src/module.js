@@ -8,7 +8,10 @@ const panelDefaults = {
   defaultColor: 'rgb(117, 117, 117)',
   numberSize: '32px',
   thresholds: [],
-  titleSize: '18px'
+  titleSize: '18px',
+  mathScratchPad: 'count = sum(pluck(series, "length"))',
+  mathDisplayValue: 'count',
+  mathColorValue: 'count'
 }
 
 export class AlarmBoxCtrl extends MetricsPanelCtrl {
@@ -29,6 +32,7 @@ export class AlarmBoxCtrl extends MetricsPanelCtrl {
 
   onInitEditMode () {
     this.addEditorTab('Options', 'public/plugins/btplc-alarm-box-panel/editor.html')
+    this.addEditorTab('Values', 'public/plugins/btplc-alarm-box-panel/values.html')
   }
 
   onDataReceived (seriesList) {
