@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import * as math from '../external/math.min'
 
 export class Builder {

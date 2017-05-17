@@ -10,7 +10,7 @@ describe('Presenter', function () {
   })
 
   describe('call', function () {
-    var box = { number: 100 }
+    var box = { colorValue: 100 }
 
     describe('when there are no thresholds', function () {
       it('assigns the default color', function () {

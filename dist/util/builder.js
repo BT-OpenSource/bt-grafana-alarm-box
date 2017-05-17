@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['lodash', '../external/math.min'], function (_export, _context) {
+System.register(['../external/math.min'], function (_export, _context) {
   "use strict";
 
-  var _, math, _createClass, Builder;
+  var math, _createClass, Builder;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -12,9 +12,7 @@ System.register(['lodash', '../external/math.min'], function (_export, _context)
   }
 
   return {
-    setters: [function (_lodash) {
-      _ = _lodash.default;
-    }, function (_externalMathMin) {
+    setters: [function (_externalMathMin) {
       math = _externalMathMin;
     }],
     execute: function () {
