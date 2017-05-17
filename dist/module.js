@@ -69,7 +69,7 @@ System.register(['./module.css!', 'lodash', 'app/plugins/sdk', './util/builder',
         numberSize: '32px',
         thresholds: [],
         titleSize: '18px',
-        mathScratchPad: 'count = sum(pluck(series, "length"))',
+        mathScratchPad: 'count = sum(map(data, f(x) = size(x.datapoints)[1]))',
         mathDisplayValue: 'count',
         mathColorValue: 'count'
       };
