@@ -10,7 +10,7 @@ This panel shows the total count of values across all series. This is useful if 
 
 A separate tab allows you to customize how the display and color values are calculated, using [mathjs](http://mathjs.org).
 
-![Alarm Box Panel](https://raw.githubusercontent.com/BTplc/grafana-alarm-box/master/src/img/alarm_box_customization.png)
+![Alarm Box Values](https://raw.githubusercontent.com/BTplc/grafana-alarm-box/master/src/img/alarm_box_values.png)
 
 In addition to the `data` array, the initial scope also includes a `now` value, which is set to `Date.now()`.
 
