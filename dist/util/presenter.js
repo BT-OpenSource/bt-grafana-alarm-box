@@ -44,7 +44,7 @@ System.register(['lodash'], function (_export, _context) {
         _createClass(Presenter, [{
           key: 'call',
           value: function call(box) {
-            box.color = this._colorFor(box.number);
+            box.color = this._colorFor(box.colorValue);
           }
         }, {
           key: '_colorFor',

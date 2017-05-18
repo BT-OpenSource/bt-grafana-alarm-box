@@ -68,7 +68,10 @@ System.register(['./module.css!', 'lodash', 'app/plugins/sdk', './util/builder',
         defaultColor: 'rgb(117, 117, 117)',
         numberSize: '32px',
         thresholds: [],
-        titleSize: '18px'
+        titleSize: '18px',
+        mathScratchPad: 'count = sum(map(data, f(x) = size(x.datapoints)[1]))',
+        mathDisplayValue: 'count',
+        mathColorValue: 'count'
       };
 
       _export('PanelCtrl', _export('AlarmBoxCtrl', AlarmBoxCtrl = function (_MetricsPanelCtrl) {
@@ -97,6 +100,7 @@ System.register(['./module.css!', 'lodash', 'app/plugins/sdk', './util/builder',
           key: 'onInitEditMode',
           value: function onInitEditMode() {
             this.addEditorTab('Options', 'public/plugins/btplc-alarm-box-panel/editor.html');
+            this.addEditorTab('Values', 'public/plugins/btplc-alarm-box-panel/values.html');
           }
         }, {
           key: 'onDataReceived',

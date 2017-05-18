@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['lodash'], function (_export, _context) {
+System.register(['../external/math.min'], function (_export, _context) {
   "use strict";
 
-  var _, _createClass, Builder;
+  var math, _createClass, Builder;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -12,8 +12,8 @@ System.register(['lodash'], function (_export, _context) {
   }
 
   return {
-    setters: [function (_lodash) {
-      _ = _lodash.default;
+    setters: [function (_externalMathMin) {
+      math = _externalMathMin;
     }],
     execute: function () {
       _createClass = function () {
@@ -46,11 +46,16 @@ System.register(['lodash'], function (_export, _context) {
           value: function call() {
             var seriesList = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
-            var sum = _.reduce(seriesList, function (memo, series) {
-              return memo + series.datapoints.length;
-            }, 0);
+            var scratchPadExp = this.options.mathScratchPad;
+            var displayValueExp = this.options.mathDisplayValue;
+            var colorValueExp = this.options.mathColorValue;
+            var scope = { data: seriesList, now: Date.now() };
 
-            return { number: sum };
+            return {
+              scratchPad: math.eval(scratchPadExp, scope),
+              displayValue: math.eval(displayValueExp, scope),
+              colorValue: math.eval(colorValueExp, scope)
+            };
           }
         }]);
 

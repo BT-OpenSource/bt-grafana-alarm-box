@@ -6,7 +6,7 @@ export class Presenter {
   }
 
   call (box) {
-    box.color = this._colorFor(box.number)
+    box.color = this._colorFor(box.colorValue)
   }
 
   _colorFor (percentChange) {
