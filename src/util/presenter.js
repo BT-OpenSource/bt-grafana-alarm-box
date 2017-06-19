@@ -9,9 +9,9 @@ export class Presenter {
     box.color = this._colorFor(box.colorValue)
   }
 
-  _colorFor (percentChange) {
+  _colorFor (value) {
     var thresholds = this.options.thresholds.concat().sort((a, b) => b.value - a.value)
-    var threshold = _.find(thresholds, (threshold) => percentChange >= threshold.value)
+    var threshold = _.find(thresholds, (threshold) => value >= threshold.value)
     return threshold ? threshold.color : this.options.defaultColor
   }
 }

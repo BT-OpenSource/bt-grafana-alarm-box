@@ -48,12 +48,12 @@ System.register(['lodash'], function (_export, _context) {
           }
         }, {
           key: '_colorFor',
-          value: function _colorFor(percentChange) {
+          value: function _colorFor(value) {
             var thresholds = this.options.thresholds.concat().sort(function (a, b) {
               return b.value - a.value;
             });
             var threshold = _.find(thresholds, function (threshold) {
-              return percentChange >= threshold.value;
+              return value >= threshold.value;
             });
             return threshold ? threshold.color : this.options.defaultColor;
           }
