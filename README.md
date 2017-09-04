@@ -4,9 +4,9 @@ An alarm box panel for [Grafana](http://grafana.org/).
 
 ![Alarm Box Panel](https://raw.githubusercontent.com/BTplc/grafana-alarm-box/master/src/img/alarm_box.png)
 
-This panel shows the total count of values across all series. This is useful if you want to show a total count of alarms. Options for this panel include variable font sizes (title and number) and color thresholds. 
+This panel shows the total count of values across all series. This is useful if you want to show a total count of alarms. Options for this panel include variable font sizes; a drilldown link for the entire panel; and color thresholds for the value. 
 
-## Customization
+## Values
 
 A separate tab allows you to customize how the display and color values are calculated, using [mathjs](http://mathjs.org).
 

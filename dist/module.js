@@ -1,9 +1,9 @@
 'use strict';
 
-System.register(['./module.css!', 'lodash', 'app/plugins/sdk', './util/builder', './util/presenter'], function (_export, _context) {
+System.register(['./module.css!', 'lodash', 'app/plugins/sdk', './util/builder', './util/presenter', './util/linker'], function (_export, _context) {
   "use strict";
 
-  var _, MetricsPanelCtrl, Builder, Presenter, _createClass, panelDefaults, AlarmBoxCtrl;
+  var _, MetricsPanelCtrl, Builder, Presenter, Linker, _createClass, panelDefaults, AlarmBoxCtrl;
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
@@ -44,6 +44,8 @@ System.register(['./module.css!', 'lodash', 'app/plugins/sdk', './util/builder',
       Builder = _utilBuilder.Builder;
     }, function (_utilPresenter) {
       Presenter = _utilPresenter.Presenter;
+    }, function (_utilLinker) {
+      Linker = _utilLinker.Linker;
     }],
     execute: function () {
       _createClass = function () {
@@ -67,6 +69,7 @@ System.register(['./module.css!', 'lodash', 'app/plugins/sdk', './util/builder',
       panelDefaults = {
         defaultColor: 'rgb(117, 117, 117)',
         numberSize: '32px',
+        linkIndex: 0,
         thresholds: [],
         titleSize: '18px',
         mathScratchPad: 'count = sum(map(data, f(x) = size(x.datapoints)[1]))',
@@ -90,9 +93,9 @@ System.register(['./module.css!', 'lodash', 'app/plugins/sdk', './util/builder',
 
           _this.builder = new Builder(_this.panel);
           _this.presenter = new Presenter(_this.panel);
+          _this.linker = new Linker(_this.panel, linkSrv);
 
           _this.box = {};
-          _this.linkSrv = linkSrv;
           return _this;
         }
 
@@ -113,10 +116,10 @@ System.register(['./module.css!', 'lodash', 'app/plugins/sdk', './util/builder',
           value: function onRender() {
             this.box = this.builder.call(this.seriesList);
             this.presenter.call(this.box);
+            this.linker.call(this.box);
 
             this.panelContainer.css('background-color', this.box.color);
             this.panelTitle.css('font-size', this.panel.titleSize);
-            this.boxContainer.toggleClass('pointer', this.panel.links && this.panel.links.length > 0);
           }
         }, {
           key: 'onEditorAddThreshold',
@@ -131,26 +134,10 @@ System.register(['./module.css!', 'lodash', 'app/plugins/sdk', './util/builder',
             this.render();
           }
         }, {
-          key: 'onClick',
-          value: function onClick() {
-            if (this.panel.links === null) return;
-            if (this.panel.links.length === 0) return;
-
-            var linkInfo = this.linkSrv.getPanelLinkAnchorInfo(this.panel.links[0], this.panel.scopedVars);
-
-            if (linkInfo.target === '_blank') {
-              window.open(linkInfo.href, '_blank');
-            } else {
-              window.location.href = '/' + linkInfo.href;
-            }
-          }
-        }, {
           key: 'link',
           value: function link(scope, elem, attrs, ctrl) {
             this.panelContainer = elem.find('.panel-container');
-            this.boxContainer = elem.find('.box');
             this.panelTitle = elem.find('.panel-title');
-            this.boxContainer.on('click', this.onClick.bind(this));
           }
         }]);
 
