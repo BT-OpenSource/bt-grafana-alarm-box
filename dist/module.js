@@ -69,7 +69,7 @@ System.register(['./module.css!', 'lodash', 'app/plugins/sdk', './util/builder',
       panelDefaults = {
         defaultColor: 'rgb(117, 117, 117)',
         numberSize: '32px',
-        linkIndex: 0,
+        linkIndex: '0',
         thresholds: [],
         titleSize: '18px',
         mathScratchPad: 'count = sum(map(data, f(x) = size(x.datapoints)[1]))',
