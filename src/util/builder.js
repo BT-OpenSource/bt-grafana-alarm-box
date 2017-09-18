@@ -9,7 +9,8 @@ export class Builder {
     var scratchPadExp = this.options.mathScratchPad
     var displayValueExp = this.options.mathDisplayValue
     var colorValueExp = this.options.mathColorValue
-    var scope = { data: seriesList, now: Date.now() }
+    var data = JSON.parse(JSON.stringify(seriesList))
+    var scope = { data: data, now: Date.now() }
 
     return {
       scratchPad: math.eval(scratchPadExp, scope),
