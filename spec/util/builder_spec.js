@@ -5,7 +5,8 @@ describe('Builder', function () {
     it('returns a box with evaluated expressions', function () {
       var subject = new Builder({
         mathScratchPad: 'foo = data[1].datapoints[1]',
-        mathDisplayValue: 'foo', mathColorValue: 'foo + 1'
+        mathDisplayValue: 'foo',
+        mathColorValue: 'foo + 1'
       })
 
       var expected = {
@@ -19,12 +20,14 @@ describe('Builder', function () {
     it('copes when the data are not plain objects', function () {
       var subject = new Builder({
         mathScratchPad: 'data.options.mathScratchPad',
-        mathDisplayValue: '1', mathColorValue: '1'
+        mathDisplayValue: '1',
+        mathColorValue: '1'
       })
 
       var expected = {
         scratchPad: 'data.options.mathScratchPad',
-        displayValue: 1, colorValue: 1
+        displayValue: 1,
+        colorValue: 1
       }
 
       expect(subject.call(subject)).toEqual(expected)
