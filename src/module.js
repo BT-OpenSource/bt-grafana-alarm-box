@@ -11,7 +11,7 @@ const panelDefaults = {
   linkIndex: '0',
   thresholds: [],
   titleSize: '18px',
-  mathScratchPad: 'count = sum(map(data, f(x) = size(x.datapoints)[1]))',
+  mathScratchPad: 'count = size(size(data)[1] == 0 ? [] : data[1].rows)[1]',
   mathDisplayValue: 'count',
   mathColorValue: 'count'
 }
