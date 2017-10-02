@@ -16,27 +16,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Presenter = exports.Presenter = function () {
-  function Presenter(options) {
+  function Presenter(panel) {
     _classCallCheck(this, Presenter);
 
-    this.options = options;
+    this.panel = panel;
   }
 
   _createClass(Presenter, [{
     key: 'call',
     value: function call(box) {
-      box.color = this._colorFor(box.colorValue);
+      box.color = this._color(box.colorValue);
     }
   }, {
-    key: '_colorFor',
-    value: function _colorFor(value) {
-      var thresholds = this.options.thresholds.concat().sort(function (a, b) {
-        return b.value - a.value;
+    key: '_color',
+    value: function _color(value) {
+      var thresholds = _lodash2.default.sortBy(this.panel.thresholds, 'value');
+      var threshold = _lodash2.default.find(_lodash2.default.reverse(thresholds), function (t) {
+        return value >= t.value;
       });
-      var threshold = _lodash2.default.find(thresholds, function (threshold) {
-        return value >= threshold.value;
-      });
-      return threshold ? threshold.color : this.options.defaultColor;
+      return threshold ? threshold.color : this.panel.defaultColor;
     }
   }]);
 

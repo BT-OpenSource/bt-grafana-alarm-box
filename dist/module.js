@@ -19,6 +19,8 @@ var _presenter = require('./util/presenter');
 
 var _linker = require('./util/linker');
 
+var _styler = require('./util/styler');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -55,6 +57,7 @@ var AlarmBoxCtrl = exports.AlarmBoxCtrl = function (_MetricsPanelCtrl) {
     _this.builder = new _builder.Builder(_this.panel);
     _this.presenter = new _presenter.Presenter(_this.panel);
     _this.linker = new _linker.Linker(_this.panel, linkSrv);
+    _this.styler = new _styler.Styler(_this.panel);
 
     _this.box = {};
     return _this;
@@ -78,6 +81,7 @@ var AlarmBoxCtrl = exports.AlarmBoxCtrl = function (_MetricsPanelCtrl) {
       this.box = this.builder.call(this.seriesList);
       this.presenter.call(this.box);
       this.linker.call(this.box);
+      this.styler.call(this.box);
 
       this.panelContainer.css('background-color', this.box.color);
       this.panelTitle.css('font-size', this.panel.titleSize);

@@ -1,17 +1,17 @@
 import _ from 'lodash'
 
 export class Presenter {
-  constructor (options) {
-    this.options = options
+  constructor (panel) {
+    this.panel = panel
   }
 
   call (box) {
-    box.color = this._colorFor(box.colorValue)
+    box.color = this._color(box.colorValue)
   }
 
-  _colorFor (value) {
-    var thresholds = this.options.thresholds.concat().sort((a, b) => b.value - a.value)
-    var threshold = _.find(thresholds, (threshold) => value >= threshold.value)
-    return threshold ? threshold.color : this.options.defaultColor
+  _color (value) {
+    var thresholds = _.sortBy(this.panel.thresholds, 'value')
+    var threshold = _.find(_.reverse(thresholds), (t) => value >= t.value)
+    return threshold ? threshold.color : this.panel.defaultColor
   }
 }

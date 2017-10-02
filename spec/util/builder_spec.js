@@ -19,13 +19,13 @@ describe('Builder', function () {
 
     it('copes when the data are not plain objects', function () {
       var subject = new Builder({
-        mathScratchPad: 'data.options.mathScratchPad',
+        mathScratchPad: 'data.panel.mathScratchPad',
         mathDisplayValue: '1',
         mathColorValue: '1'
       })
 
       var expected = {
-        scratchPad: 'data.options.mathScratchPad',
+        scratchPad: 'data.panel.mathScratchPad',
         displayValue: 1,
         colorValue: 1
       }

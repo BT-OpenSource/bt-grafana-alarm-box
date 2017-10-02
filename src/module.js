@@ -3,6 +3,7 @@ import {MetricsPanelCtrl} from 'app/plugins/sdk'
 import {Builder} from './util/builder'
 import {Presenter} from './util/presenter'
 import {Linker} from './util/linker'
+import {Styler} from './util/styler'
 
 const panelDefaults = {
   defaultColor: 'rgb(117, 117, 117)',
@@ -27,8 +28,9 @@ export class AlarmBoxCtrl extends MetricsPanelCtrl {
     this.builder = new Builder(this.panel)
     this.presenter = new Presenter(this.panel)
     this.linker = new Linker(this.panel, linkSrv)
+    this.styler = new Styler(this.panel)
 
-    this.box = {}
+    this.box = { }
   }
 
   onInitEditMode () {
@@ -45,6 +47,7 @@ export class AlarmBoxCtrl extends MetricsPanelCtrl {
     this.box = this.builder.call(this.seriesList)
     this.presenter.call(this.box)
     this.linker.call(this.box)
+    this.styler.call(this.box)
 
     this.panelContainer.css('background-color', this.box.color)
     this.panelTitle.css('font-size', this.panel.titleSize)

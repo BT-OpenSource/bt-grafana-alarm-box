@@ -1,11 +1,9 @@
 <a ng-href="{{ ctrl.box.link.href }}" target="{{ ctrl.box.link.target }}">
-  <div ng-style="{'height': ctrl.height + 'px'}">
-    <table style="height: 100%; text-align: center; width: 100%">
-      <tr ng-style="{'font-weight': 'bold', 'font-size': ctrl.panel.numberSize}">
-        <td>
-          {{ ctrl.box.displayValue }}
-        </td>
-      </tr>
-    </table>
-  </div>
+  <table ng-style="{'height': ctrl.height + 'px', 'text-align': 'center', 'width': '100%'}">
+    <tr ng-style="ctrl.box.numberStyle">
+      <td>
+        {{ ctrl.box.displayValue }}
+      </td>
+    </tr>
+  </table>
 </a>

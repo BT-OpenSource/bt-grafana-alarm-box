@@ -16,10 +16,10 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Builder = exports.Builder = function () {
-  function Builder(options) {
+  function Builder(panel) {
     _classCallCheck(this, Builder);
 
-    this.options = options;
+    this.panel = panel;
   }
 
   _createClass(Builder, [{
@@ -27,9 +27,9 @@ var Builder = exports.Builder = function () {
     value: function call() {
       var seriesList = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
 
-      var scratchPadExp = this.options.mathScratchPad;
-      var displayValueExp = this.options.mathDisplayValue;
-      var colorValueExp = this.options.mathColorValue;
+      var scratchPadExp = this.panel.mathScratchPad;
+      var displayValueExp = this.panel.mathDisplayValue;
+      var colorValueExp = this.panel.mathColorValue;
       var data = JSON.parse(JSON.stringify(seriesList));
       var scope = { data: data, now: Date.now() };
 
