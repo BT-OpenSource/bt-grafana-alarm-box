@@ -47,14 +47,11 @@ export class AlarmBoxCtrl extends MetricsPanelCtrl {
     this.box = this.builder.call(this.seriesList)
     this.presenter.call(this.box)
     this.linker.call(this.box)
-    this.styler.call(this.box)
-
-    this.panelContainer.css('background-color', this.box.color)
-    this.panelTitle.css('font-size', this.panel.titleSize)
+    this.styler.call(this.box, this.container, this.title)
   }
 
   onEditorAddThreshold () {
-    this.panel.thresholds.push({ value: 0, color: this.panel.defaultColor })
+    this.panel.thresholds.push({ color: this.panel.defaultColor })
     this.render()
   }
 
@@ -64,8 +61,8 @@ export class AlarmBoxCtrl extends MetricsPanelCtrl {
   }
 
   link (scope, elem, attrs, ctrl) {
-    this.panelContainer = elem.find('.panel-container')
-    this.panelTitle = elem.find('.panel-title')
+    this.container = elem.find('.panel-container')
+    this.title = elem.find('.panel-title')
   }
 }
 

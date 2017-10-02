@@ -17,8 +17,15 @@ var Styler = exports.Styler = function () {
 
   _createClass(Styler, [{
     key: 'call',
-    value: function call(box) {
-      box.numberStyle = { 'font-weight': 'bold', 'font-size': this.panel.numberSize };
+    value: function call(box, container, title) {
+      container.css('background-color', box.color);
+      title.css('font-size', this.panel.titleSize);
+      box.numberStyle = this._numberStyle();
+    }
+  }, {
+    key: '_numberStyle',
+    value: function _numberStyle(box) {
+      return { 'font-weight': 'bold', 'font-size': this.panel.numberSize };
     }
   }]);
 
