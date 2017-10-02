@@ -2,11 +2,11 @@ import {Styler} from '../../src/util/styler'
 
 describe('Styler', function () {
   beforeEach(function () {
-    var panel = { numberSize: 1, titleSize: 1 }
-    this.box = { color: 'blue' }
     this.container = jasmine.createSpyObj('container', ['css'])
     this.title = jasmine.createSpyObj('title', ['css'])
+    var panel = { numberSize: 1, titleSize: 1 }
     this.subject = new Styler(panel)
+    this.box = { color: 'blue' }
   })
 
   describe('call', function () {
