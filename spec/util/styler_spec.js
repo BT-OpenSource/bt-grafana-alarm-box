@@ -1,29 +1,34 @@
 import {Styler} from '../../src/util/styler'
 
-describe('Styler', function () {
-  beforeEach(function () {
-    this.container = jasmine.createSpyObj('container', ['css'])
-    this.title = jasmine.createSpyObj('title', ['css'])
-    var panel = { numberSize: 1, titleSize: 1 }
-    this.subject = new Styler(panel)
-    this.box = { color: 'blue' }
+describe('Styler', () => {
+  let subject
+  let container
+  let box
+  let title
+
+  beforeEach(() => {
+    container = jasmine.createSpyObj('container', ['css'])
+    title = jasmine.createSpyObj('title', ['css'])
+    let panel = { numberSize: 1, titleSize: 1 }
+    subject = new Styler(panel)
+    box = { color: 'blue' }
   })
 
-  describe('call', function () {
-    it('assigns the style for the number', function () {
-      this.subject.call(this.box, this.container, this.title)
-      expect(this.box.numberStyle['font-weight']).toEqual('bold')
-      expect(this.box.numberStyle['font-size']).toEqual(1)
+  describe('call', () => {
+    it('assigns the style for the number', () => {
+      subject.call(box, container, title)
+      expect(box.numberStyle['font-weight']).toEqual('bold')
+      expect(box.numberStyle['font-size']).toEqual(1)
     })
 
-    it('sets the style for the container', function () {
-      this.subject.call(this.box, this.container, this.title)
-      expect(this.container.css).toHaveBeenCalledWith('background-color', 'blue')
+    it('sets the style for the container', () => {
+      subject.call(box, container, title)
+      expect(container.css).toHaveBeenCalledWith('background-color', 'blue')
     })
 
-    it('sets the style for the panel title', function () {
-      this.subject.call(this.box, this.container, this.title)
-      expect(this.title.css).toHaveBeenCalledWith('font-size', 1)
+    it('sets the style for the panel title', () => {
+      subject.call(box, container, title)
+      expect(title.css).toHaveBeenCalledWith('font-size', 1)
     })
   })
 })

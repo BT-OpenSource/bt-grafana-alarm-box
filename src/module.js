@@ -16,7 +16,7 @@ const panelDefaults = {
   mathColorValue: 'count'
 }
 
-export class AlarmBoxCtrl extends MetricsPanelCtrl {
+export class PanelCtrl extends MetricsPanelCtrl {
   constructor ($scope, $injector, linkSrv) {
     super($scope, $injector)
     _.defaults(this.panel, panelDefaults)
@@ -66,5 +66,4 @@ export class AlarmBoxCtrl extends MetricsPanelCtrl {
   }
 }
 
-AlarmBoxCtrl.templateUrl = 'module.html'
-export { AlarmBoxCtrl as PanelCtrl }
+PanelCtrl.templateUrl = 'module.html'
