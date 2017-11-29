@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.PanelCtrl = exports.AlarmBoxCtrl = undefined;
+exports.PanelCtrl = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -40,13 +40,13 @@ var panelDefaults = {
   mathColorValue: 'count'
 };
 
-var AlarmBoxCtrl = exports.AlarmBoxCtrl = function (_MetricsPanelCtrl) {
-  _inherits(AlarmBoxCtrl, _MetricsPanelCtrl);
+var PanelCtrl = exports.PanelCtrl = function (_MetricsPanelCtrl) {
+  _inherits(PanelCtrl, _MetricsPanelCtrl);
 
-  function AlarmBoxCtrl($scope, $injector, linkSrv) {
-    _classCallCheck(this, AlarmBoxCtrl);
+  function PanelCtrl($scope, $injector, linkSrv) {
+    _classCallCheck(this, PanelCtrl);
 
-    var _this = _possibleConstructorReturn(this, (AlarmBoxCtrl.__proto__ || Object.getPrototypeOf(AlarmBoxCtrl)).call(this, $scope, $injector));
+    var _this = _possibleConstructorReturn(this, (PanelCtrl.__proto__ || Object.getPrototypeOf(PanelCtrl)).call(this, $scope, $injector));
 
     _lodash2.default.defaults(_this.panel, panelDefaults);
 
@@ -63,7 +63,7 @@ var AlarmBoxCtrl = exports.AlarmBoxCtrl = function (_MetricsPanelCtrl) {
     return _this;
   }
 
-  _createClass(AlarmBoxCtrl, [{
+  _createClass(PanelCtrl, [{
     key: 'onInitEditMode',
     value: function onInitEditMode() {
       this.addEditorTab('Options', 'public/plugins/btplc-alarm-box-panel/editor.html');
@@ -103,8 +103,7 @@ var AlarmBoxCtrl = exports.AlarmBoxCtrl = function (_MetricsPanelCtrl) {
     }
   }]);
 
-  return AlarmBoxCtrl;
+  return PanelCtrl;
 }(_sdk.MetricsPanelCtrl);
 
-AlarmBoxCtrl.templateUrl = 'module.html';
-exports.PanelCtrl = AlarmBoxCtrl;
+PanelCtrl.templateUrl = 'module.html';
