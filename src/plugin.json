@@ -4,7 +4,7 @@
   "id": "btplc-alarm-box-panel",
 
   "info": {
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "Box panel counting values in a series",
     "author": {
       "name": "BT Plc",
