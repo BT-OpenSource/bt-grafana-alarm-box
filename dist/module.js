@@ -81,7 +81,7 @@ var PanelCtrl = exports.PanelCtrl = function (_MetricsPanelCtrl) {
       this.box = this.builder.call(this.seriesList);
       this.presenter.call(this.box);
       this.linker.call(this.box);
-      this.styler.call(this.box, this.container, this.title);
+      this.styler.call(this.box, this.container, this.title, this.header, this.menu);
     }
   }, {
     key: 'onEditorAddThreshold',
@@ -100,6 +100,8 @@ var PanelCtrl = exports.PanelCtrl = function (_MetricsPanelCtrl) {
     value: function link(scope, elem, attrs, ctrl) {
       this.container = elem.find('.panel-container');
       this.title = elem.find('.panel-title');
+      this.header = elem.find('.panel-header');
+      this.menu = elem.find('.dropdown-menu');
     }
   }]);
 
