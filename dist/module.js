@@ -67,7 +67,7 @@ var PanelCtrl = exports.PanelCtrl = function (_MetricsPanelCtrl) {
     key: 'onInitEditMode',
     value: function onInitEditMode() {
       this.addEditorTab('Options', 'public/plugins/btplc-alarm-box-panel/editor.html');
-      this.addEditorTab('Values', 'public/plugins/btplc-alarm-box-panel/values.html');
+      this.addEditorTab('Series values', 'public/plugins/btplc-alarm-box-panel/values.html');
     }
   }, {
     key: 'onDataReceived',
